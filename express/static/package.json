@@ -1,0 +1,14 @@
+{
+  "author": "",
+  "name": "static",
+  "version": "0.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~2.5.9"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
