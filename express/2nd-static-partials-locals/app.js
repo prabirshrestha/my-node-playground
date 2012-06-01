@@ -29,7 +29,24 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', routes.index);
+app.get('/', function (req, res) {
+	res.redirect('/products');
+});
+
+var products = require('./products');
+
+app.get('/products', function (req, res) {
+	res.render('products/index', {
+		products: products.all
+	});
+});
+
+app.get('/products/:id', function (req, res) {
+  var product = products.find(req.params.id);
+  res.render('products/show', {
+    product: product
+  });
+})
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
