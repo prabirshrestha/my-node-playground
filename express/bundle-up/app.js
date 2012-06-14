@@ -9,6 +9,16 @@ var express = require('express')
 
 var app = express();
 
+var BundleUp = require('bundle-up');
+BundleUp(app, __dirname + '/assets', {
+  staticRoot: __dirname + '/public/',
+  staticUrlRoot:'/',
+  bundle: false,
+  minifyCss: true,
+  minifyJs: true
+});
+
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
