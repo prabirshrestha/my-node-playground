@@ -13,7 +13,7 @@ var BundleUp = require('bundle-up');
 BundleUp(app, __dirname + '/assets', {
   staticRoot: __dirname + '/public/',
   staticUrlRoot:'/',
-  bundle: false,
+  bundle: true,
   minifyCss: true,
   minifyJs: true
 });

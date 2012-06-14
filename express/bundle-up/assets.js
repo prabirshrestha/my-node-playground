@@ -3,12 +3,8 @@ module.exports = function(assets) {
   assets.addJs('/public/javascripts/a.js');
   assets.addJs('/public/javascripts/b.js');
 
-  // assets.addJs('/public/js/jquery.placeholder.min.js');
-  // assets.addJs('/app/client/main.coffee');
-
-  // assets.addCss('/public/bootstrap/bootstrap.min.css');
-  // assets.addCss('/app/styles/screen.styl');
-}
+  assets.addCss('/public/stylesheets/style.styl');
+};
 
 // path for bundle_up.coffee
     // if(@app.helper)
