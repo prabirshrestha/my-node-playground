@@ -19,7 +19,21 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(require('connect-assets')());
+  app.use(require('connect-assets')({
+    jsCompilers: {
+      html: {
+        match: /\.html$/,
+        compileSync: function (sourcePath, source) {
+          var key = sourcePath.substring((__dirname + '/assets/templates/').length);
+          var extIndex = key.lastIndexOf('.');
+          if(extIndex>0) {
+            key = key.substring(0, extIndex);
+          }
+          return 'JST["'+ key + '"]=' + JSON.stringify(source) + ';';
+        }
+      }
+    }
+  }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
