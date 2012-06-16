@@ -21,9 +21,14 @@ window.require = (function () {
       // We use execScript on Internet Explorer
       // We use an anonymous function so that context is window
       // rather than jQuery in Firefox
-      (window.execScript || function(data) {
-        window["eval"].call( window, data);
-      })(module);
+      try{
+        (window.execScript || function(data) {
+          window["eval"].call( window, data);
+        })(module + ';\n//@ sourceURL=JSX['+ name +']\n');
+      } catch(e) {
+        console.log(e.stack);
+        throw e;
+      }
     }
     else {
       module();
