@@ -1,7 +1,7 @@
-window.JSX || (window.JSX = {});
+window.JSS || (window.JSS = {});
 window.JST || (window.JST = {});
 
-window.require = (function () {
+window.requires = (function () {
 
   var loaded = {};
   
@@ -12,7 +12,7 @@ window.require = (function () {
       return;
     }
 
-    module = JSX[name];
+    module = JSS[name];
     if(!module) {
       throw new Error("Couldn't load module: " + name);
     }
@@ -24,7 +24,7 @@ window.require = (function () {
       try{
         (window.execScript || function(data) {
           window["eval"].call( window, data);
-        })(module + ';\n//@ sourceURL=JSX['+ name +']\n');
+        })(module + ';\n//@ sourceURL=JSS['+ name +']\n');
       } catch(e) {
         console.log(e.stack);
         throw e;

@@ -1,4 +1,4 @@
-//= require requirejsx
+//= require requires
 //= require _libs/libs
 //= require app.js
 //= require_tree models

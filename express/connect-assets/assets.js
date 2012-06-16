@@ -11,8 +11,8 @@ var minifyJs = function(js) {
   return pro.gen_code(ast);
 };
 
-assets.jsCompilers.jsx = {
-  match: /\.jsx$/,
+assets.jsCompilers.jss = {
+  match: /\.jss$/,
   compileSync: function (sourcePath, source) {
     var key = sourcePath.substring((__dirname + '/assets/').length);
     if(key.lastIndexOf('js/', 0) === 0) {
@@ -27,7 +27,7 @@ assets.jsCompilers.jsx = {
       source = minifyJs(source);
     }
 
-    return 'JSX["'+ key + '"]=' + JSON.stringify(source) + ';';
+    return 'JSS["'+ key + '"]=' + JSON.stringify(source) + ';';
   }
 };
 

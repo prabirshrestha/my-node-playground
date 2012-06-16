@@ -16,7 +16,7 @@ App = {
 		}
 		
 		for (var i = 0; i < libs.length; i++) {
-			require('_libs/' + libs[i]);
+			requires('_libs/' + libs[i]);
 		}
 	}
 
