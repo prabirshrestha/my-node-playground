@@ -34,7 +34,9 @@ window.requires = (function () {
       module();
     }
 
+    delete JSS[name];
     loaded[name] = true;
+    
     return;
   };
 
